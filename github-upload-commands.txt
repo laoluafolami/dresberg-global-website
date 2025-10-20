@@ -1,0 +1,11 @@
+# Commands to run after creating the GitHub repository
+
+# Set the correct remote URL (replace with your actual repository name)
+git remote add origin https://github.com/laoluafolami/dresberg-global-website.git
+
+# Push your code to GitHub
+git push -u origin main
+
+# Alternative: If you want to use a different repository name, use:
+# git remote add origin https://github.com/laoluafolami/YOUR-REPO-NAME.git
+# git push -u origin main
