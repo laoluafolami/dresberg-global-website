@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import WhatsAppButton from './components/WhatsAppButton';
-import Home from './pages/Home';
-import About from './pages/About';
-import Services from './pages/Services';
-import Blog from './pages/Blog';
-import Contact from './pages/Contact';
+import BasicHeader from './components/BasicHeader';
+import SimpleFooter from './components/SimpleFooter';
+import HomeFixed from './pages/HomeFixed';
+import AboutFixed from './pages/AboutFixed';
+import ServicesFixed from './pages/ServicesFixed';
+import BlogFixed from './pages/BlogFixed';
+import ContactFixed from './pages/ContactFixed';
 
 type Page = 'home' | 'about' | 'services' | 'blog' | 'contact';
 
@@ -27,26 +26,25 @@ function App() {
   const renderPage = () => {
     switch (currentPage) {
       case 'home':
-        return <Home onNavigate={handleNavigate} />;
+        return <HomeFixed onNavigate={handleNavigate} />;
       case 'about':
-        return <About />;
+        return <AboutFixed />;
       case 'services':
-        return <Services onNavigate={handleNavigate} />;
+        return <ServicesFixed onNavigate={handleNavigate} />;
       case 'blog':
-        return <Blog onNavigate={handleNavigate} />;
+        return <BlogFixed onNavigate={handleNavigate} />;
       case 'contact':
-        return <Contact />;
+        return <ContactFixed />;
       default:
-        return <Home onNavigate={handleNavigate} />;
+        return <HomeFixed onNavigate={handleNavigate} />;
     }
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900 transition-colors">
-      <Header currentPage={currentPage} onNavigate={handleNavigate} />
+    <div className="min-h-screen bg-white">
+      <BasicHeader currentPage={currentPage} onNavigate={handleNavigate} />
       <main>{renderPage()}</main>
-      <Footer onNavigate={handleNavigate} />
-      <WhatsAppButton />
+      <SimpleFooter onNavigate={handleNavigate} />
     </div>
   );
 }
