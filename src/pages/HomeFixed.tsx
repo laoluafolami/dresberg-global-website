@@ -7,6 +7,7 @@ interface HomeProps {
 export default function HomeFixed({ onNavigate }: HomeProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+
   const heroImages = [
     {
       url: 'https://images.pexels.com/photos/3278215/pexels-photo-3278215.jpeg?auto=compress&cs=tinysrgb&w=1920',
@@ -37,6 +38,8 @@ export default function HomeFixed({ onNavigate }: HomeProps) {
 
     return () => clearInterval(interval);
   }, [heroImages.length]);
+
+
 
   const services = [
     {
@@ -104,6 +107,8 @@ export default function HomeFixed({ onNavigate }: HomeProps) {
                 }}
               />
             </div>
+            
+
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-slide-up text-shadow-lg">
               Connecting People, Business, and Opportunities Across the World
             </h1>
