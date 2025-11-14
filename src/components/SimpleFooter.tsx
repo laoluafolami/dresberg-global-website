@@ -122,6 +122,14 @@ export default function SimpleFooter({ onNavigate }: SimpleFooterProps) {
               </li>
               <li>
                 <button 
+                  onClick={() => onNavigate('careers')}
+                  className="text-gray-300 hover:text-blue-400 transition-colors text-left block"
+                >
+                  💼 Careers
+                </button>
+              </li>
+              <li>
+                <button 
                   onClick={() => onNavigate('contact')}
                   className="text-gray-300 hover:text-blue-400 transition-colors text-left block"
                 >

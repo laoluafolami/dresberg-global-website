@@ -6,8 +6,9 @@ import AboutFixed from './pages/AboutFixed';
 import ServicesFixed from './pages/ServicesFixed';
 import BlogFixed from './pages/BlogFixed';
 import ContactFixed from './pages/ContactFixed';
+import CareersFixed from './pages/CareersFixed';
 
-type Page = 'home' | 'about' | 'services' | 'blog' | 'contact';
+type Page = 'home' | 'about' | 'services' | 'blog' | 'contact' | 'careers';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -35,6 +36,8 @@ function App() {
         return <BlogFixed onNavigate={handleNavigate} />;
       case 'contact':
         return <ContactFixed />;
+      case 'careers':
+        return <CareersFixed onNavigate={handleNavigate} />;
       default:
         return <HomeFixed onNavigate={handleNavigate} />;
     }
