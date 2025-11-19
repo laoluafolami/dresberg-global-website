@@ -71,7 +71,7 @@ export default function SimpleFooter({ onNavigate }: SimpleFooterProps) {
                 </svg>
               </a>
               <a 
-                href="https://wa.me/15551234567" 
+                href="https://wa.me/2347078998979" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-green-500 transition-colors"
@@ -183,8 +183,8 @@ export default function SimpleFooter({ onNavigate }: SimpleFooterProps) {
                 <span className="mr-3 text-lg">📞</span>
                 <div>
                   <p className="font-medium">Phone</p>
-                  <a href="tel:+15551234567" className="hover:text-blue-400 transition-colors">
-                    +1 (555) 123-4567
+                  <a href="tel:+2347078998979" className="hover:text-blue-400 transition-colors">
+                    +234 707 899 8979
                   </a>
                 </div>
               </div>
@@ -192,7 +192,7 @@ export default function SimpleFooter({ onNavigate }: SimpleFooterProps) {
                 <span className="mr-3 text-lg">💬</span>
                 <div>
                   <p className="font-medium">WhatsApp</p>
-                  <a href="https://wa.me/15551234567" className="hover:text-blue-400 transition-colors">
+                  <a href="https://wa.me/2347078998979" className="hover:text-blue-400 transition-colors">
                     Chat with us
                   </a>
                 </div>
@@ -201,7 +201,7 @@ export default function SimpleFooter({ onNavigate }: SimpleFooterProps) {
                 <span className="mr-3 text-lg">🕒</span>
                 <div>
                   <p className="font-medium">Business Hours</p>
-                  <p className="text-sm">Mon-Fri: 9AM-6PM EST</p>
+                  <p className="text-sm">Mon-Fri: 9AM-6PM WAT</p>
                 </div>
               </div>
             </div>

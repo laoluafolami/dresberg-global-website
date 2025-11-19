@@ -219,7 +219,7 @@ export default function CareersFixed({ onNavigate }: CareersProps) {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6">Join Our Global Team</h1>
             <p className="text-xl text-blue-100 mb-8">
-              Build your career with Dresberg Global Limited and help us connect opportunities across the world
+              Join a visionary company shaping the future of business across industries. Dresberg Global Limited welcomes innovative minds who share our values of integrity, excellence, and transformation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button

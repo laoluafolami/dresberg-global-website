@@ -142,7 +142,7 @@ export default function ContactFixed() {
       `}</style>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 text-white py-24 overflow-hidden animate-gradient">
+      <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 text-white py-16 overflow-hidden animate-gradient">
         {/* Floating Elements */}
         <div className="absolute inset-0">
           {[...Array(15)].map((_, i) => (
