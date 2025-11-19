@@ -1,14 +1,20 @@
 import { useState, useEffect } from 'react';
 import BasicHeader from './components/BasicHeader';
 import SimpleFooter from './components/SimpleFooter';
+import TawkToChatSimple from './components/TawkToChatSimple';
+import { getTawkToConfig } from './config/tawkto';
+import './styles/tawkto-custom.css';
 import HomeFixed from './pages/HomeFixed';
 import AboutFixed from './pages/AboutFixed';
 import ServicesFixed from './pages/ServicesFixed';
 import BlogFixed from './pages/BlogFixed';
 import ContactFixed from './pages/ContactFixed';
 import CareersFixed from './pages/CareersFixed';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+import CookiePolicy from './pages/CookiePolicy';
 
-type Page = 'home' | 'about' | 'services' | 'blog' | 'contact' | 'careers';
+type Page = 'home' | 'about' | 'services' | 'blog' | 'contact' | 'careers' | 'privacy' | 'terms' | 'cookies';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -38,16 +44,30 @@ function App() {
         return <ContactFixed />;
       case 'careers':
         return <CareersFixed onNavigate={handleNavigate} />;
+      case 'privacy':
+        return <PrivacyPolicy onNavigate={handleNavigate} />;
+      case 'terms':
+        return <TermsOfService onNavigate={handleNavigate} />;
+      case 'cookies':
+        return <CookiePolicy onNavigate={handleNavigate} />;
       default:
         return <HomeFixed onNavigate={handleNavigate} />;
     }
   };
+
+  const tawkConfig = getTawkToConfig();
 
   return (
     <div className="min-h-screen bg-white">
       <BasicHeader currentPage={currentPage} onNavigate={handleNavigate} />
       <main>{renderPage()}</main>
       <SimpleFooter onNavigate={handleNavigate} />
+      
+      {/* Tawk.to Live Chat - Bottom Right Position */}
+      <TawkToChatSimple 
+        propertyId={tawkConfig.PROPERTY_ID} 
+        widgetId={tawkConfig.WIDGET_ID}
+      />
     </div>
   );
 }

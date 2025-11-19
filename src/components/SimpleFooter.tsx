@@ -278,9 +278,24 @@ export default function SimpleFooter({ onNavigate }: SimpleFooterProps) {
             </div>
             
             <div className="flex flex-wrap justify-center lg:justify-end space-x-6 text-gray-300 text-sm">
-              <a href="#" className="hover:text-blue-400 transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-blue-400 transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-blue-400 transition-colors">Cookie Policy</a>
+              <button 
+                onClick={() => onNavigate('privacy')}
+                className="hover:text-blue-400 transition-colors"
+              >
+                Privacy Policy
+              </button>
+              <button 
+                onClick={() => onNavigate('terms')}
+                className="hover:text-blue-400 transition-colors"
+              >
+                Terms of Service
+              </button>
+              <button 
+                onClick={() => onNavigate('cookies')}
+                className="hover:text-blue-400 transition-colors"
+              >
+                Cookie Policy
+              </button>
             </div>
           </div>
         </div>
