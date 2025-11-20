@@ -1,18 +1,22 @@
+import { useTranslation } from '../contexts/LanguageContext';
+
 interface SimpleFooterProps {
   onNavigate: (page: string) => void;
 }
 
 export default function SimpleFooter({ onNavigate }: SimpleFooterProps) {
+  const { t } = useTranslation();
+  const currentYear = new Date().getFullYear();
+  
   return (
     <footer className="bg-slate-900 text-white py-16">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <h3 className="text-2xl font-bold mb-4 text-white">Dresberg Global Limited</h3>
+            <h3 className="text-2xl font-bold mb-4 text-white">{t('footer.company')}</h3>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Connecting People, Business, and Opportunities Across the World. 
-              Driving innovation and excellence in global commerce.
+              {t('footer.description')}
             </p>
             <div className="flex space-x-4">
               <a 
@@ -212,7 +216,7 @@ export default function SimpleFooter({ onNavigate }: SimpleFooterProps) {
         <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="flex flex-col lg:flex-row justify-between items-center space-y-6 lg:space-y-0">
             <div className="text-gray-300 text-center lg:text-left">
-              <p>&copy; {new Date().getFullYear()} Dresberg Global Limited. All rights reserved.</p>
+              <p>{t('footer.copyright', { year: currentYear })}</p>
             </div>
             
             {/* Social Media Links */}

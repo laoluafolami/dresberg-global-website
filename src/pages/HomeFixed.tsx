@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from '../contexts/LanguageContext';
 
 interface HomeProps {
   onNavigate: (page: string) => void;
 }
 
 export default function HomeFixed({ onNavigate }: HomeProps) {
+  const { t } = useTranslation();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const heroImages = [
@@ -163,13 +165,13 @@ export default function HomeFixed({ onNavigate }: HomeProps) {
           <div className="max-w-5xl mx-auto text-center text-white z-10 pb-8 pt-12">
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight animate-fade-in-up">
               <span className="text-white drop-shadow-2xl" style={{ textShadow: '3px 3px 6px rgba(0,0,0,0.8), 0 0 12px rgba(0,0,0,0.6)' }}>
-                Driving Innovation. Connecting Opportunities. Transforming Lives Globally.
+                {t('hero.title')}
               </span>
             </h1>
 
             <div className="bg-black/30 backdrop-blur-lg rounded-2xl p-6 md:p-8 mb-10 border border-white/30 shadow-2xl animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               <p className="text-lg md:text-xl text-white font-medium leading-relaxed max-w-4xl mx-auto" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
-                Dresberg Global Limited is a forward-thinking, multi-industry company committed to excellence across sectors — from Travel, Tourism and Global Mobility to E-Commerce, Agribusiness, Learning and Development, Real Estate, ICT, and International Trade. We deliver reliable, innovative, and customer-centered solutions designed to create sustainable impact and global value.
+                {t('hero.subtitle')}
               </p>
             </div>
 
@@ -178,20 +180,20 @@ export default function HomeFixed({ onNavigate }: HomeProps) {
                 onClick={() => onNavigate('services')}
                 className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all hover:scale-105 shadow-xl text-sm md:text-base whitespace-nowrap"
               >
-                Explore Our Services
+                {t('hero.cta.services')}
                 <span>→</span>
               </button>
               <button
                 onClick={() => onNavigate('contact')}
                 className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold border-2 border-white/30 transition-all hover:scale-105 shadow-xl text-sm md:text-base whitespace-nowrap"
               >
-                Book Free Visa Consultation
+                {t('hero.cta.consultation')}
               </button>
               <button
                 onClick={() => onNavigate('contact')}
                 className="bg-gradient-to-r from-teal-600 to-cyan-700 hover:from-teal-700 hover:to-cyan-800 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all hover:scale-105 shadow-xl text-sm md:text-base whitespace-nowrap"
               >
-                Partner With Us
+                {t('hero.cta.partner')}
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM9 12c0 1.66 1.34 3 3 3s3-1.34 3-3-1.34-3-3-3-3 1.34-3 3zm3-8C6.48 4 2 8.48 2 14s4.48 10 10 10 10-4.48 10-10S17.52 4 12 4z" />
                 </svg>
