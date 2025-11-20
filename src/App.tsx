@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import BasicHeader from './components/BasicHeader';
 import SimpleFooter from './components/SimpleFooter';
-import TawkToChatSimple from './components/TawkToChatSimple';
-import { getTawkToConfig } from './config/tawkto';
-import './styles/tawkto-custom.css';
+import DresbotChat from './components/DresbotChat';
 import HomeFixed from './pages/HomeFixed';
 import AboutFixed from './pages/AboutFixed';
 import ServicesFixed from './pages/ServicesFixed';
@@ -55,19 +53,12 @@ function App() {
     }
   };
 
-  const tawkConfig = getTawkToConfig();
-
   return (
     <div className="min-h-screen bg-white">
       <BasicHeader currentPage={currentPage} onNavigate={handleNavigate} />
       <main>{renderPage()}</main>
       <SimpleFooter onNavigate={handleNavigate} />
-      
-      {/* Tawk.to Live Chat - Bottom Right Position */}
-      <TawkToChatSimple 
-        propertyId={tawkConfig.PROPERTY_ID} 
-        widgetId={tawkConfig.WIDGET_ID}
-      />
+      <DresbotChat onNavigate={handleNavigate} />
     </div>
   );
 }
