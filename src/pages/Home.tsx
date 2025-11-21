@@ -95,7 +95,7 @@ export default function Home({ onNavigate }: HomeProps) {
               />
             </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-slide-up">
-              Connecting People, Business, and Opportunities Across the World
+              Driving Innovation. Connecting Opportunities. Transforming Lives Globally.
             </h1>
             <p className="text-xl md:text-3xl mb-8 text-amber-300 font-semibold animate-slide-up animation-delay-200">
               Driving Opportunities Beyond Borders

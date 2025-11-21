@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
+import { useTranslation } from '../contexts/LanguageContext';
+import LanguageSwitcher from './LanguageSwitcher';
 
 interface BasicHeaderProps {
   currentPage: string;
@@ -10,14 +12,15 @@ export default function BasicHeader({ currentPage, onNavigate }: BasicHeaderProp
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
   const { theme, toggleTheme } = useTheme();
+  const { t } = useTranslation();
 
   const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About Us' },
-    { id: 'services', label: 'Our Services' },
-    { id: 'blog', label: 'Blog & Insights' },
-    { id: 'careers', label: 'Careers' },
-    { id: 'contact', label: 'Contact Us' }
+    { id: 'home', label: t('nav.home') },
+    { id: 'about', label: t('nav.about') },
+    { id: 'services', label: t('nav.services') },
+    { id: 'blog', label: t('nav.blog') },
+    { id: 'careers', label: t('nav.careers') },
+    { id: 'contact', label: t('nav.contact') }
   ];
 
   useEffect(() => {
@@ -86,6 +89,8 @@ export default function BasicHeader({ currentPage, onNavigate }: BasicHeaderProp
               <div className="font-mono text-[10px]">{formatDate(currentTime)}</div>
             </div>
             
+            <LanguageSwitcher />
+            
             <button
               onClick={toggleTheme}
               className="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
@@ -96,6 +101,8 @@ export default function BasicHeader({ currentPage, onNavigate }: BasicHeaderProp
           </nav>
 
           <div className="md:hidden flex items-center gap-2">
+            <LanguageSwitcher />
+            
             <button
               onClick={toggleTheme}
               className="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300"

@@ -1,14 +1,18 @@
 import { useState, useEffect } from 'react';
 import BasicHeader from './components/BasicHeader';
 import SimpleFooter from './components/SimpleFooter';
+import DresbotChat from './components/DresbotChat';
 import HomeFixed from './pages/HomeFixed';
 import AboutFixed from './pages/AboutFixed';
 import ServicesFixed from './pages/ServicesFixed';
 import BlogFixed from './pages/BlogFixed';
 import ContactFixed from './pages/ContactFixed';
 import CareersFixed from './pages/CareersFixed';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+import CookiePolicy from './pages/CookiePolicy';
 
-type Page = 'home' | 'about' | 'services' | 'blog' | 'contact' | 'careers';
+type Page = 'home' | 'about' | 'services' | 'blog' | 'contact' | 'careers' | 'privacy' | 'terms' | 'cookies';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -38,6 +42,12 @@ function App() {
         return <ContactFixed />;
       case 'careers':
         return <CareersFixed onNavigate={handleNavigate} />;
+      case 'privacy':
+        return <PrivacyPolicy onNavigate={handleNavigate} />;
+      case 'terms':
+        return <TermsOfService onNavigate={handleNavigate} />;
+      case 'cookies':
+        return <CookiePolicy onNavigate={handleNavigate} />;
       default:
         return <HomeFixed onNavigate={handleNavigate} />;
     }
@@ -48,6 +58,7 @@ function App() {
       <BasicHeader currentPage={currentPage} onNavigate={handleNavigate} />
       <main>{renderPage()}</main>
       <SimpleFooter onNavigate={handleNavigate} />
+      <DresbotChat onNavigate={handleNavigate} />
     </div>
   );
 }

@@ -165,8 +165,8 @@ export default function CareersFixed({ onNavigate }: CareersProps) {
     }
   ];
 
-  const filteredJobs = selectedDepartment === 'all' 
-    ? jobOpenings 
+  const filteredJobs = selectedDepartment === 'all'
+    ? jobOpenings
     : jobOpenings.filter(job => job.department === selectedDepartment);
 
   const handleApplicationSubmit = async (e: React.FormEvent) => {
@@ -186,7 +186,7 @@ export default function CareersFixed({ onNavigate }: CareersProps) {
         coverLetter: '',
         resume: null
       });
-      
+
       setTimeout(() => setSubmitSuccess(false), 5000);
     } catch (error) {
       console.error('Application submission error:', error);
@@ -219,7 +219,7 @@ export default function CareersFixed({ onNavigate }: CareersProps) {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6">Join Our Global Team</h1>
             <p className="text-xl text-blue-100 mb-8">
-              Build your career with Dresberg Global Limited and help us connect opportunities across the world
+              Join a visionary company shaping the future of business across industries. Dresberg Global Limited welcomes innovative minds who share our values of integrity, excellence, and transformation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
@@ -282,11 +282,10 @@ export default function CareersFixed({ onNavigate }: CareersProps) {
               <button
                 key={dept.id}
                 onClick={() => setSelectedDepartment(dept.id)}
-                className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all hover:scale-105 ${
-                  selectedDepartment === dept.id
-                    ? 'bg-blue-900 text-white shadow-lg'
-                    : 'bg-white dark:bg-slate-700 text-blue-900 dark:text-white border-2 border-blue-200 dark:border-slate-600 hover:border-blue-400 dark:hover:border-slate-500'
-                }`}
+                className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all hover:scale-105 ${selectedDepartment === dept.id
+                  ? 'bg-blue-900 text-white shadow-lg'
+                  : 'bg-white dark:bg-slate-700 text-blue-900 dark:text-white border-2 border-blue-200 dark:border-slate-600 hover:border-blue-400 dark:hover:border-slate-500'
+                  }`}
               >
                 <span className="text-xl">{dept.icon}</span>
                 {dept.name}
@@ -318,9 +317,9 @@ export default function CareersFixed({ onNavigate }: CareersProps) {
                       </div>
                     </div>
                   </div>
-                  
+
                   <p className="text-gray-600 dark:text-gray-300 mb-4">{job.description}</p>
-                  
+
                   <div className="mb-4">
                     <h4 className="font-semibold text-blue-900 dark:text-white mb-2">Requirements:</h4>
                     <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
@@ -337,7 +336,7 @@ export default function CareersFixed({ onNavigate }: CareersProps) {
                       )}
                     </ul>
                   </div>
-                  
+
                   <div className="flex items-center justify-between">
                     <div className="text-lg font-bold text-green-600 dark:text-green-400">
                       {job.salary}
