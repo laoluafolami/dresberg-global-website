@@ -89,11 +89,11 @@ export default function HomeFixed({ onNavigate }: HomeProps) {
       )
     },
     {
-      title: 'Business Consulting',
-      description: 'Expert advisory services for business growth, market expansion, and operational excellence.',
+      title: 'Coming Soon: Real Estate & Development',
+      description: 'Innovative housing and real estate solutions including property sales, development, and turnkey housing projects for modern living.',
       icon: (
         <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
         </svg>
       )
     }
