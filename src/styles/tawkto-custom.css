@@ -1,0 +1,62 @@
+/* Tawk.to Chat Widget Custom Positioning */
+
+/* Ensure chat widget is in bottom-right corner */
+#tawk-bubble,
+.tawk-chatbox,
+.tawk-widget {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 9999 !important;
+}
+
+/* Mobile responsive positioning */
+@media (max-width: 768px) {
+  #tawk-bubble,
+  .tawk-chatbox,
+  .tawk-widget {
+    bottom: 15px !important;
+    right: 15px !important;
+  }
+}
+
+/* Ensure chat doesn't overlap with footer */
+.tawk-widget {
+  margin-bottom: 0 !important;
+}
+
+/* Custom styling for chat bubble */
+.tawk-bubble {
+  background-color: #1e40af !important; /* Blue theme */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 50px !important;
+}
+
+/* Chat window positioning */
+.tawk-chatbox {
+  max-height: 500px !important;
+  width: 350px !important;
+}
+
+@media (max-width: 480px) {
+  .tawk-chatbox {
+    width: calc(100vw - 30px) !important;
+    max-width: 350px !important;
+    right: 15px !important;
+  }
+}
+
+/* Ensure chat doesn't interfere with page content */
+body {
+  padding-bottom: 0 !important;
+}
+
+/* Hide chat during page load to prevent flash */
+.tawk-widget {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.tawk-widget.loaded {
+  opacity: 1;
+}

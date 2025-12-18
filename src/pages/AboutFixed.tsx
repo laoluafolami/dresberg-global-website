@@ -34,24 +34,34 @@ export default function AboutFixed() {
 
   const values = [
     {
-      title: 'Excellence',
-      description: 'We maintain the highest standards in everything we do, delivering quality and professionalism.',
-      icon: '🏆'
-    },
-    {
       title: 'Innovation',
-      description: 'We embrace creativity and forward-thinking solutions to meet evolving global challenges.',
+      description: 'Continuously embracing new ideas and technologies to drive progress and transformation.',
       icon: '💡'
     },
     {
       title: 'Integrity',
-      description: 'We operate with transparency, honesty, and ethical practices in all our dealings.',
+      description: 'Conducting business with transparency and accountability in all our operations.',
       icon: '🤝'
     },
     {
-      title: 'Collaboration',
-      description: 'We build strong partnerships and work together to achieve shared success.',
-      icon: '🌟'
+      title: 'Excellence',
+      description: 'Delivering premium service across all sectors with unwavering quality standards.',
+      icon: '🏆'
+    },
+    {
+      title: 'Sustainability',
+      description: 'Supporting eco-friendly and long-term development goals for future generations.',
+      icon: '🌱'
+    },
+    {
+      title: 'Customer-Centricity',
+      description: 'Putting client needs and satisfaction at the center of everything we do.',
+      icon: '❤️'
+    },
+    {
+      title: 'Respect',
+      description: 'Promoting diversity, inclusion, and mutual growth in all our relationships.',
+      icon: '🤗'
     }
   ];
 
@@ -62,7 +72,7 @@ export default function AboutFixed() {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6">About Dresberg Global Limited</h1>
             <p className="text-xl text-blue-100">
-              Your trusted partner in navigating global opportunities across multiple industries
+              A diversified global enterprise headquartered in Abuja, Nigeria, with operations and partnerships across multiple sectors
             </p>
           </div>
         </div>
@@ -71,23 +81,16 @@ export default function AboutFixed() {
       <section className="py-20 bg-white dark:bg-slate-900 transition-colors">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-blue-900 dark:text-white mb-8 text-center">Company Overview</h2>
+            <h2 className="text-4xl font-bold text-blue-900 dark:text-white mb-8 text-center">Who We Are</h2>
             <div className="prose prose-lg max-w-none text-gray-700 dark:text-gray-300 space-y-6">
               <p className="text-lg leading-relaxed">
-                Dresberg Global Limited is a dynamic, multi-sector international business enterprise committed to
-                connecting people, businesses, and opportunities across borders. We operate at the intersection of
-                commerce, travel, education, agriculture, real estate, and international trade.
+                Dresberg Global Limited is a diversified global enterprise headquartered in Abuja, Nigeria, with operations and partnerships across multiple sectors. Our focus is on creating world-class solutions that connect people, enhance business, and drive progress.
               </p>
               <p className="text-lg leading-relaxed">
-                Our mission is to break down barriers and create pathways for individuals and organizations to thrive
-                in an increasingly interconnected world. With a presence spanning multiple continents, we bring together
-                local expertise and global vision to deliver exceptional results.
+                As a forward-thinking, multi-industry company, we are committed to excellence across sectors — from Travel, Tourism and Global Mobility to E-Commerce, Agribusiness, Learning and Development, Real Estate, ICT, and International Trade. We deliver reliable, innovative, and customer-centered solutions designed to create sustainable impact and global value.
               </p>
               <p className="text-lg leading-relaxed">
-                Through our diverse portfolio of services, we empower clients to expand their reach, optimize their
-                operations, and unlock new possibilities in the global marketplace. Whether you're looking to study
-                abroad, grow your business internationally, or access new markets, Dresberg Global is your gateway
-                to success.
+                Our cross-industry synergy leverages innovation across sectors, with customer-focused operations built on trust and transparency. We maintain global standards with deep local understanding, delivering operational excellence that drives measurable results through strategic partnerships that empower transformation.
               </p>
             </div>
           </div>
@@ -103,9 +106,7 @@ export default function AboutFixed() {
               </div>
               <h3 className="text-3xl font-bold text-blue-900 dark:text-white mb-4">Our Mission</h3>
               <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-                To drive opportunities beyond borders by delivering innovative, world-class solutions that connect
-                people, businesses, and markets across the globe. We are committed to creating value, fostering growth,
-                and enabling success in every venture we undertake.
+                To deliver premium, customer-centric solutions through innovation, excellence, and sustainability. We are committed to creating world-class solutions that connect people, enhance business, and drive progress across all sectors we serve.
               </p>
             </div>
 
@@ -115,9 +116,7 @@ export default function AboutFixed() {
               </div>
               <h3 className="text-3xl font-bold text-blue-900 dark:text-white mb-4">Our Vision</h3>
               <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-                To be the leading global enterprise recognized for excellence in facilitating international opportunities,
-                fostering sustainable growth, and building bridges that transform lives and businesses worldwide. We
-                envision a world where borders are not barriers but gateways to endless possibilities.
+                To be a globally respected, multi-industry brand known for driving innovation, enhancing lives, and creating lasting value. We envision a world where our cross-industry expertise creates sustainable impact and transforms communities worldwide.
               </p>
             </div>
           </div>
@@ -136,7 +135,7 @@ export default function AboutFixed() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {values.map((value, index) => (
               <div key={index} className="text-center group">
                 <div className="bg-gradient-to-br from-blue-50 to-white dark:from-slate-800 dark:to-slate-700 p-8 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 h-full border border-blue-100 dark:border-slate-600 hover:border-blue-300 dark:hover:border-blue-500 hover:-translate-y-3 hover:scale-105 transform cursor-pointer">
@@ -150,6 +149,69 @@ export default function AboutFixed() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-gray-50 dark:bg-slate-800 transition-colors">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-blue-900 dark:text-white mb-4">Our Unique Value Proposition</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              What sets Dresberg Global Limited apart in the global marketplace
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="bg-white dark:bg-slate-900 p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center mb-6">
+                <span className="text-2xl">🔄</span>
+              </div>
+              <h3 className="text-2xl font-bold text-blue-900 dark:text-white mb-4">Cross-Industry Synergy</h3>
+              <p className="text-gray-700 dark:text-gray-300">
+                Leveraging innovation across sectors to create comprehensive solutions that address multiple business needs simultaneously.
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-slate-900 p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gradient-to-br from-teal-600 to-teal-800 rounded-lg flex items-center justify-center mb-6">
+                <span className="text-2xl">🎯</span>
+              </div>
+              <h3 className="text-2xl font-bold text-blue-900 dark:text-white mb-4">Customer-Focused Operations</h3>
+              <p className="text-gray-700 dark:text-gray-300">
+                Building operations on trust and transparency, ensuring every client receives personalized attention and tailored solutions.
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-slate-900 p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gradient-to-br from-amber-600 to-amber-800 rounded-lg flex items-center justify-center mb-6">
+                <span className="text-2xl">🌍</span>
+              </div>
+              <h3 className="text-2xl font-bold text-blue-900 dark:text-white mb-4">Global Standards, Local Understanding</h3>
+              <p className="text-gray-700 dark:text-gray-300">
+                Combining international best practices with deep local market knowledge to deliver culturally relevant solutions.
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-slate-900 p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-purple-800 rounded-lg flex items-center justify-center mb-6">
+                <span className="text-2xl">⚡</span>
+              </div>
+              <h3 className="text-2xl font-bold text-blue-900 dark:text-white mb-4">Operational Excellence</h3>
+              <p className="text-gray-700 dark:text-gray-300">
+                Driving measurable results through streamlined processes, quality management, and continuous improvement initiatives.
+              </p>
+            </div>
+
+            <div className="bg-white dark:bg-slate-900 p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div className="w-16 h-16 bg-gradient-to-br from-green-600 to-green-800 rounded-lg flex items-center justify-center mb-6">
+                <span className="text-2xl">🤝</span>
+              </div>
+              <h3 className="text-2xl font-bold text-blue-900 dark:text-white mb-4">Strategic Partnerships</h3>
+              <p className="text-gray-700 dark:text-gray-300">
+                Building alliances that empower transformation and create mutual value for all stakeholders involved.
+              </p>
+            </div>
           </div>
         </div>
       </section>

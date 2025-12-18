@@ -44,7 +44,7 @@ export default function ContactFixed() {
       ), 
       label: 'Facebook', 
       url: 'https://www.facebook.com/dresbergglobal',
-      hoverColor: 'hover:bg-blue-600'
+      gradient: 'from-blue-600 to-blue-800'
     },
     { 
       icon: (
@@ -54,7 +54,7 @@ export default function ContactFixed() {
       ), 
       label: 'Instagram', 
       url: 'https://www.instagram.com/dresbergglobal',
-      hoverColor: 'hover:bg-pink-600'
+      gradient: 'from-pink-500 to-purple-600'
     },
     { 
       icon: (
@@ -64,7 +64,7 @@ export default function ContactFixed() {
       ), 
       label: 'LinkedIn', 
       url: 'https://www.linkedin.com/company/dresbergglobal',
-      hoverColor: 'hover:bg-blue-700'
+      gradient: 'from-blue-700 to-blue-900'
     },
     { 
       icon: (
@@ -74,7 +74,7 @@ export default function ContactFixed() {
       ), 
       label: 'Twitter/X', 
       url: 'https://www.twitter.com/dresbergglobal',
-      hoverColor: 'hover:bg-blue-400'
+      gradient: 'from-blue-400 to-blue-600'
     },
     { 
       icon: (
@@ -84,154 +84,276 @@ export default function ContactFixed() {
       ), 
       label: 'YouTube', 
       url: 'https://www.youtube.com/dresbergglobal',
-      hoverColor: 'hover:bg-red-600'
+      gradient: 'from-red-500 to-red-700'
     }
   ];
 
   return (
-    <div className="pt-20">
-      <section className="bg-gradient-to-br from-blue-900 to-blue-800 text-white py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6">Contact Us</h1>
-            <p className="text-xl text-blue-100">
+    <div className="pt-20 overflow-hidden">
+      <style>{`
+        @keyframes gradientShift {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); opacity: 1; }
+          50% { transform: scale(1.05); opacity: 0.8; }
+        }
+        @keyframes slideInUp {
+          from { opacity: 0; transform: translateY(50px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideInLeft {
+          from { opacity: 0; transform: translateX(-50px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+          from { opacity: 0; transform: translateX(50px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+        .animate-gradient {
+          background-size: 400% 400%;
+          animation: gradientShift 6s ease infinite;
+        }
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+        .animate-pulse-custom {
+          animation: pulse 3s ease-in-out infinite;
+        }
+        .animate-slide-up {
+          animation: slideInUp 0.8s ease-out forwards;
+        }
+        .animate-slide-left {
+          animation: slideInLeft 0.8s ease-out forwards;
+        }
+        .animate-slide-right {
+          animation: slideInRight 0.8s ease-out forwards;
+        }
+        .glass-effect {
+          backdrop-filter: blur(20px);
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+      `}</style>
+
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 text-white py-16 overflow-hidden animate-gradient">
+        {/* Floating Elements */}
+        <div className="absolute inset-0">
+          {[...Array(15)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-2 h-2 bg-white/20 rounded-full animate-float"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 6}s`,
+                animationDuration: `${4 + Math.random() * 4}s`
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center animate-slide-up">
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <div className="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-2xl animate-pulse-custom">
+                <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path fillRule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clipRule="evenodd"/>
+                </svg>
+              </div>
+              <h1 className="text-6xl font-bold bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">
+                CONTACT US
+              </h1>
+            </div>
+            <p className="text-xl text-blue-100 leading-relaxed">
               Let's discuss how we can help you achieve your global business objectives
             </p>
+            <div className="mt-8 flex justify-center">
+              <div className="w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full"></div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-gray-50 dark:bg-slate-800 transition-colors">
-        <div className="container mx-auto px-4">
+      {/* Main Content */}
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-800 dark:to-blue-900 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full -translate-x-48 -translate-y-48 animate-float"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-teal-500/10 to-emerald-500/10 rounded-full translate-x-48 translate-y-48 animate-float" style={{animationDelay: '3s'}}></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            <div>
-              <h2 className="text-3xl font-bold text-blue-900 dark:text-white mb-8">Get in Touch</h2>
+            {/* Contact Information */}
+            <div className="animate-slide-left">
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-slate-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent mb-8 animate-gradient">
+                Get in Touch
+              </h2>
 
               <div className="space-y-6 mb-8">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-900 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/>
-                      <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-blue-900 dark:text-white mb-1">Email</h3>
-                    <a href="mailto:info@dresbergglobal.com" className="text-gray-600 dark:text-gray-300 hover:text-blue-900 dark:hover:text-blue-400">
-                      info@dresbergglobal.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-900 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path fillRule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clipRule="evenodd"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-blue-900 dark:text-white mb-1">Phone</h3>
-                    <p className="text-gray-600 dark:text-gray-300">+234 XXX XXX XXXX</p>
+                <div className="group bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 animate-gradient">
+                  <div className="flex items-start gap-4">
+                    <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"/>
+                        <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-white text-lg mb-2">Email</h3>
+                      <div className="space-y-1">
+                        <a href="mailto:info@dresbergglobal.com" className="block text-blue-100 hover:text-white transition-colors">
+                          info@dresbergglobal.com
+                        </a>
+                        <a href="mailto:support@dresbergglobal.com" className="block text-blue-100 hover:text-white transition-colors">
+                          support@dresbergglobal.com
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-blue-900 dark:text-white mb-1">WhatsApp</h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-2">Chat with us directly for quick responses</p>
-                    <button
-                      onClick={() => window.open('https://wa.me/1234567890', '_blank')}
-                      className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg font-semibold transition-all hover:scale-105 inline-flex items-center gap-2"
-                    >
-                      <span>💬</span>
-                      Start Chat
-                    </button>
+                <div className="group bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 animate-gradient">
+                  <div className="flex items-start gap-4">
+                    <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path fillRule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clipRule="evenodd"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-white text-lg mb-2">Phone</h3>
+                      <a href="tel:+2347078998979" className="text-emerald-100 hover:text-white transition-colors">
+                        +234 707 899 8979
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-900 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path fillRule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd"/>
-                    </svg>
+                <div className="group bg-gradient-to-br from-green-500 via-emerald-500 to-teal-600 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 animate-gradient">
+                  <div className="flex items-start gap-4">
+                    <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-white text-lg mb-2">WhatsApp</h3>
+                      <p className="text-green-100 mb-3">Chat with us directly for quick responses</p>
+                      <button
+                        onClick={() => window.open('https://wa.me/2347078998979', '_blank')}
+                        className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-6 py-3 rounded-xl font-semibold transition-all hover:scale-105 inline-flex items-center gap-2 border border-white/20 hover:border-white/40"
+                      >
+                        <span>💬</span>
+                        Start Chat
+                      </button>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-bold text-blue-900 dark:text-white mb-1">Office Address</h3>
-                    <p className="text-gray-600 dark:text-gray-300">
-                      Central Business District<br />
-                      Abuja, Federal Capital Territory<br />
-                      Nigeria
-                    </p>
+                </div>
+
+                <div className="group bg-gradient-to-br from-amber-600 via-orange-600 to-red-600 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 animate-gradient">
+                  <div className="flex items-start gap-4">
+                    <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path fillRule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-white text-lg mb-2">Office Address</h3>
+                      <p className="text-orange-100">
+                        5, Abubakar Audu Bako Crescent<br />
+                        Kado, FCT Abuja<br />
+                        Nigeria
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white dark:bg-slate-900 p-8 rounded-xl shadow-md">
-                <h3 className="font-bold text-blue-900 dark:text-white mb-4">Connect on Social Media</h3>
-                <div className="flex gap-4">
+              {/* Social Media */}
+              <div className="glass-effect rounded-2xl p-8 shadow-xl animate-slide-up" style={{animationDelay: '0.3s'}}>
+                <h3 className="font-bold text-slate-900 dark:text-white text-xl mb-6">Connect on Social Media</h3>
+                <div className="flex flex-wrap gap-4">
                   {socialLinks.map((social, index) => (
                     <a
                       key={index}
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`w-12 h-12 bg-gradient-to-br from-blue-900 to-blue-700 ${social.hoverColor} rounded-lg flex items-center justify-center text-white hover:scale-110 transition-all`}
+                      className={`group w-14 h-14 bg-gradient-to-br ${social.gradient} rounded-xl flex items-center justify-center text-white hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl animate-gradient`}
                       aria-label={social.label}
                       title={social.label}
+                      style={{animationDelay: `${index * 0.1}s`}}
                     >
-                      {social.icon}
+                      <div className="group-hover:scale-110 transition-transform duration-300">
+                        {social.icon}
+                      </div>
                     </a>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-8 bg-gradient-to-br from-blue-900 to-blue-800 text-white p-8 rounded-xl">
-                <h3 className="font-bold text-xl mb-4">Office Hours</h3>
-                <div className="space-y-2">
-                  <div className="flex justify-between">
+              {/* Working Hours */}
+              <div className="mt-8 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 text-white p-8 rounded-2xl shadow-xl animate-gradient animate-slide-up" style={{animationDelay: '0.5s'}}>
+                <h3 className="font-bold text-xl mb-6 flex items-center gap-3">
+                  <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 000-1.5h-3.75V6z" clipRule="evenodd"/>
+                    </svg>
+                  </div>
+                  Working Hours
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center p-3 bg-white/10 rounded-lg backdrop-blur-sm">
                     <span>Monday - Friday</span>
-                    <span className="font-semibold">9:00 AM - 6:00 PM</span>
+                    <span className="font-semibold text-amber-300">9:00 AM - 5:00 PM</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span>Saturday</span>
-                    <span className="font-semibold">10:00 AM - 2:00 PM</span>
+                  <div className="flex justify-between items-center p-3 bg-white/10 rounded-lg backdrop-blur-sm">
+                    <span>Saturday - Sunday</span>
+                    <span className="font-semibold text-gray-300">Closed</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span>Sunday</span>
-                    <span className="font-semibold">Closed</span>
+                  <div className="border-t border-white/20 pt-4">
+                    <div className="flex justify-between items-center p-3 bg-amber-500/20 rounded-lg backdrop-blur-sm border border-amber-400/30">
+                      <span className="text-amber-200">E-Commerce</span>
+                      <span className="font-semibold text-amber-200">Open 9:00 AM - 9:00 PM daily</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div>
-              <div className="bg-white dark:bg-slate-900 p-8 rounded-xl shadow-md">
-                <h2 className="text-2xl font-bold text-blue-900 dark:text-white mb-6">Send Us a Message</h2>
+            {/* Contact Form */}
+            <div className="animate-slide-right">
+              <div className="glass-effect rounded-2xl p-8 shadow-2xl border border-white/20">
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-slate-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent mb-8 animate-gradient">
+                  Send Us a Message
+                </h2>
 
                 {submitSuccess && (
-                  <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-start gap-3">
+                  <div className="mb-6 p-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl flex items-start gap-3 animate-slide-up">
                     <span className="text-2xl">✅</span>
                     <div>
-                      <p className="text-green-800 dark:text-green-400 font-semibold">Message sent successfully!</p>
-                      <p className="text-green-700 dark:text-green-300 text-sm">We'll get back to you as soon as possible.</p>
+                      <p className="font-semibold text-lg">Message sent successfully!</p>
+                      <p className="text-green-100">We'll get back to you as soon as possible.</p>
                     </div>
                   </div>
                 )}
 
                 {submitError && (
-                  <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
-                    <p className="text-red-800 dark:text-red-400">{submitError}</p>
+                  <div className="mb-6 p-6 bg-gradient-to-r from-red-500 to-pink-600 text-white rounded-xl animate-slide-up">
+                    <p>{submitError}</p>
                   </div>
                 )}
 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-semibold text-blue-900 dark:text-white mb-2">
+                  <div className="animate-slide-up" style={{animationDelay: '0.1s'}}>
+                    <label htmlFor="name" className="block text-sm font-semibold text-slate-900 dark:text-white mb-3">
                       Full Name *
                     </label>
                     <input
@@ -241,13 +363,13 @@ export default function ContactFixed() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-transparent bg-white dark:bg-slate-800 text-gray-900 dark:text-white"
+                      className="w-full px-6 py-4 border-2 border-gray-200 dark:border-slate-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/80 dark:bg-slate-800/80 text-gray-900 dark:text-white backdrop-blur-sm transition-all hover:border-blue-300 dark:hover:border-blue-500"
                       placeholder="Enter your full name"
                     />
                   </div>
 
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-blue-900 dark:text-white mb-2">
+                  <div className="animate-slide-up" style={{animationDelay: '0.2s'}}>
+                    <label htmlFor="email" className="block text-sm font-semibold text-slate-900 dark:text-white mb-3">
                       Email Address *
                     </label>
                     <input
@@ -257,13 +379,13 @@ export default function ContactFixed() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-transparent bg-white dark:bg-slate-800 text-gray-900 dark:text-white"
+                      className="w-full px-6 py-4 border-2 border-gray-200 dark:border-slate-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/80 dark:bg-slate-800/80 text-gray-900 dark:text-white backdrop-blur-sm transition-all hover:border-blue-300 dark:hover:border-blue-500"
                       placeholder="your.email@example.com"
                     />
                   </div>
 
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-semibold text-blue-900 dark:text-white mb-2">
+                  <div className="animate-slide-up" style={{animationDelay: '0.3s'}}>
+                    <label htmlFor="message" className="block text-sm font-semibold text-slate-900 dark:text-white mb-3">
                       Message *
                     </label>
                     <textarea
@@ -273,7 +395,7 @@ export default function ContactFixed() {
                       onChange={handleChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-900 focus:border-transparent resize-none bg-white dark:bg-slate-800 text-gray-900 dark:text-white"
+                      className="w-full px-6 py-4 border-2 border-gray-200 dark:border-slate-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none bg-white/80 dark:bg-slate-800/80 text-gray-900 dark:text-white backdrop-blur-sm transition-all hover:border-blue-300 dark:hover:border-blue-500"
                       placeholder="Tell us about your inquiry or project..."
                     />
                   </div>
@@ -281,157 +403,39 @@ export default function ContactFixed() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-blue-900 hover:bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold transition-all hover:scale-105 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 hover:from-blue-700 hover:via-purple-700 hover:to-indigo-800 text-white px-8 py-4 rounded-xl font-semibold transition-all hover:scale-105 flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl animate-gradient animate-slide-up"
+                    style={{animationDelay: '0.4s'}}
                   >
                     {isSubmitting ? (
-                      'Sending...'
+                      <>
+                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                        Sending...
+                      </>
                     ) : (
                       <>
                         Send Message
-                        <span>📤</span>
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M3.478 2.405a.75.75 0 00-.926.94l2.432 7.905H13.5a.75.75 0 010 1.5H4.984l-2.432 7.905a.75.75 0 00.926.94 60.519 60.519 0 0018.445-8.986.75.75 0 000-1.218A60.517 60.517 0 003.478 2.405z"/>
+                        </svg>
                       </>
                     )}
                   </button>
                 </form>
               </div>
 
-              <div className="mt-8 p-6 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl">
-                <h3 className="font-bold text-amber-900 dark:text-amber-400 mb-2">Looking for something specific?</h3>
+              <div className="mt-8 p-6 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 border-2 border-amber-200 dark:border-amber-800 rounded-2xl animate-slide-up" style={{animationDelay: '0.6s'}}>
+                <h3 className="font-bold text-amber-900 dark:text-amber-400 mb-3 flex items-center gap-2">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path fillRule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 01.67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 11-.671-1.34l.041-.022zM12 9a.75.75 0 100-1.5.75.75 0 000 1.5z" clipRule="evenodd"/>
+                  </svg>
+                  Looking for something specific?
+                </h3>
                 <p className="text-amber-800 dark:text-amber-300 text-sm mb-4">
                   Whether you're interested in our services, partnership opportunities, or have general inquiries,
                   we're here to help. Expect a response within 24-48 hours.
                 </p>
                 <p className="text-amber-900 dark:text-amber-400 font-semibold text-sm">
                   For urgent matters, please reach us via WhatsApp for immediate assistance.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-12 bg-white dark:bg-slate-900 transition-colors">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-blue-900 dark:text-white mb-4">Our Location</h2>
-              <p className="text-gray-600 dark:text-gray-300">
-                Visit us at our office in Abuja, Federal Capital Territory, Nigeria
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* Map */}
-              <div className="lg:col-span-2">
-                <div className="bg-gray-200 dark:bg-slate-700 rounded-xl overflow-hidden h-96 shadow-lg">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126170.38317718383!2d7.398478!3d9.0579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0baf7da48d0d%3A0x99a8fe4168c50bc8!2sAbuja%2C%20Federal%20Capital%20Territory%2C%20Nigeria!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Dresberg Global Limited Office Location - Abuja, Nigeria"
-                  />
-                </div>
-              </div>
-              
-              {/* Location Details */}
-              <div className="space-y-6">
-                <div className="bg-gradient-to-br from-blue-900 to-blue-800 text-white p-6 rounded-xl">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path fillRule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd"/>
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg mb-2">Head Office</h3>
-                      <p className="text-blue-100 mb-2">
-                        Central Business District<br />
-                        Abuja, Federal Capital Territory<br />
-                        Nigeria
-                      </p>
-                      <p className="text-blue-200 text-sm">
-                        📍 Coordinates: 9.0579° N, 7.4951° E
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md border border-gray-200 dark:border-slate-700">
-                  <h4 className="font-bold text-blue-900 dark:text-white mb-4">Getting Here</h4>
-                  <div className="space-y-3 text-sm text-gray-600 dark:text-gray-300">
-                    <div className="flex items-start gap-3">
-                      <span className="text-lg">✈️</span>
-                      <div>
-                        <p className="font-medium">By Air</p>
-                        <p>Nnamdi Azikiwe International Airport (ABV) - 45 minutes drive</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <span className="text-lg">🚗</span>
-                      <div>
-                        <p className="font-medium">By Road</p>
-                        <p>Accessible via major highways from Lagos, Kano, and Port Harcourt</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <span className="text-lg">🚌</span>
-                      <div>
-                        <p className="font-medium">Public Transport</p>
-                        <p>BRT and taxi services available throughout the city</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl border border-green-200 dark:border-green-800">
-                  <h4 className="font-bold text-green-900 dark:text-green-400 mb-3">Visit Us</h4>
-                  <p className="text-green-800 dark:text-green-300 text-sm mb-4">
-                    Schedule an appointment for personalized consultation and business discussions.
-                  </p>
-                  <button
-                    onClick={() => window.open('https://wa.me/1234567890?text=Hello, I would like to schedule a visit to your Abuja office', '_blank')}
-                    className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold transition-all hover:scale-105 inline-flex items-center gap-2 text-sm"
-                  >
-                    <span>📅</span>
-                    Schedule Visit
-                  </button>
-                </div>
-              </div>
-            </div>
-            
-            {/* Additional Info */}
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center p-6 bg-gray-50 dark:bg-slate-800 rounded-xl">
-                <div className="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🏢</span>
-                </div>
-                <h4 className="font-bold text-blue-900 dark:text-white mb-2">Modern Facilities</h4>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
-                  State-of-the-art office space in the heart of Nigeria's capital
-                </p>
-              </div>
-              
-              <div className="text-center p-6 bg-gray-50 dark:bg-slate-800 rounded-xl">
-                <div className="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🅿️</span>
-                </div>
-                <h4 className="font-bold text-blue-900 dark:text-white mb-2">Parking Available</h4>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
-                  Secure parking facilities for visitors and clients
-                </p>
-              </div>
-              
-              <div className="text-center p-6 bg-gray-50 dark:bg-slate-800 rounded-xl">
-                <div className="w-16 h-16 bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl">🌐</span>
-                </div>
-                <h4 className="font-bold text-blue-900 dark:text-white mb-2">Strategic Location</h4>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
-                  Prime location with easy access to government and business districts
                 </p>
               </div>
             </div>
